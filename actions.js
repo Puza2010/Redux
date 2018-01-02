@@ -16,6 +16,16 @@ import uuid from uuid;
     id: 1
 }
 
+{
+    type: VOTE_UP,
+    id: 1
+}
+
+{
+    type: VOTE_DOWN,
+    id: 1
+}
+
 function addComment(text) {
     return {
         type: ADD_COMMENT,
@@ -24,39 +34,37 @@ function addComment(text) {
     }
 }
 
-function editComment(text) {
+function editComment(text, id) {
     return {
         type: EDIT_COMMENT,
         text,
-        id: uuid.v4()
+        id
     }
 }
 
-function removeComment(text) {
+function removeComment(id) {
     return {
         type: REMOVE_COMMENT,
-        id: uuid.v4()       
+        id       
     }
 }
 
-function voteUp(text) {
+function voteUp(id) {
     return {
         type: VOTE_UP,
-        id: uuid.v4(),
-        votes: 10    
+        id
     }
 }
 
-function voteDown(text) {
+function voteDown(id) {
     return {
         type: VOTE_DOWN,
-        id: uuid.v4(),
-        votes: 10    
+        id
     }
 }
 
 const boundAddComment = text => dispatch(addComment(text));
-const boundEditComment = text => dispatch(editComment(text));
-const boundRemoveComment = text => dispatch(editComment(id));
-const boundVoteUp = text => dispatch(voteUp(votes));
-const boundVoteDown = text => dispatch(voteDown(votes));
+const boundEditComment = (text, id) => dispatch(editComment(text, id));
+const boundRemoveComment = id => dispatch(editComment(id));
+const boundVoteUp = id => dispatch(voteUp(id));
+const boundVoteDown = id => dispatch(voteDown(id));

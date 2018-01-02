@@ -19,6 +19,10 @@ function reducer(state = initialState, action) {
 			return Object.assign({}, state, {
 				comments: state.comments.filter(comment => comment.id !== action.id)
 			});
+		case EDIT_COMMENT:
+			return Object.assign({}, state, {
+				
+			})
         default:
             return state;
     }
