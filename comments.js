@@ -9,36 +9,35 @@ function comments(state = [], action) {
                 votes: 0
             }
             , ...state.comments];
-    
 		case REMOVE_COMMENT:
-			return state.comments.filter(comment => comment.id !== action.id);
-		case EDIT_COMMENT:
-			return state.comments.map(function(comment) {
-                    if(action.id === comment.id) {
-                        comment.text = action.text;
-                        return comment;
-                    }
+            return state.comments.filter(comment => comment.id !== action.id);
+        case EDIT_COMMENT:
+            return state.comments.map(function(comment) {
+                if(action.id === comment.id) {
+                    comment.text = action.text;
                     return comment;
                 }
-			})
+                return comment;
+            }
+        })
         case VOTE_UP:
             return state.comments.map(function(comment) {
-                    if(action.id === comment.id) {
-                        comment.votes += 1;
-                        return comment;
-                    }
+                if(action.id === comment.id) {
+                    comment.votes += 1;
                     return comment;
                 }
-            })
+                return comment;
+            }
+        })
         case VOTE_DOWN:
             return state.comments.map(function(comment) {
-                    if(action.id === comment.id) {
-                        comment.votes -= 1;
-                        return comment;
-                    }
+                if(action.id === comment.id) {
+                    comment.votes -= 1;
                     return comment;
                 }
-            })
+                return comment;
+            }
+        })
         default:
             return state;
     }
