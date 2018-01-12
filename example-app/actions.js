@@ -48,3 +48,9 @@ export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const VOTE_UP = 'VOTE_UP';
 export const VOTE_DOWN = 'VOTE_DOWN';
+
+export addComment;
+export editComment;
+export removeComment;
+export voteUp;
+export voteDown;
