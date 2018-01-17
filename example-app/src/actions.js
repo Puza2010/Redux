@@ -1,4 +1,4 @@
-import uuid from uuid;
+import uuid from 'uuid';
 
 function addComment(text) {
     return {
@@ -37,11 +37,11 @@ function voteDown(id) {
     }
 }
 
-const boundAddComment = text => dispatch(addComment(text));
-const boundEditComment = (text, id) => dispatch(editComment(text, id));
-const boundRemoveComment = id => dispatch(editComment(id));
-const boundVoteUp = id => dispatch(voteUp(id));
-const boundVoteDown = id => dispatch(voteDown(id));
+//const boundAddComment = text => dispatch(addComment(text));
+//const boundEditComment = (text, id) => dispatch(editComment(text, id));
+//const boundRemoveComment = id => dispatch(editComment(id));
+//const boundVoteUp = id => dispatch(voteUp(id));
+//const boundVoteDown = id => dispatch(voteDown(id));
 
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
@@ -49,8 +49,8 @@ export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const VOTE_UP = 'VOTE_UP';
 export const VOTE_DOWN = 'VOTE_DOWN';
 
-export addComment;
-export editComment;
-export removeComment;
-export voteUp;
-export voteDown;
+export { addComment };
+export { editComment };
+export { removeComment };
+export { voteUp };
+export { voteDown };
