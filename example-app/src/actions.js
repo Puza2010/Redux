@@ -23,18 +23,18 @@ function removeComment(id) {
     }
 }
 
-function voteUp(id) {
-    return {
-        type: VOTE_UP,
-        id
-    }
+function thumbUpComment(commentId) {
+  return {
+    type: THUMB_UP_COMMENT,
+    id: commentId
+  }
 }
 
-function voteDown(id) {
-    return {
-        type: VOTE_DOWN,
-        id
-    }
+function thumbDownComment(commentId) {
+  return {
+    type: THUMB_DOWN_COMMENT,
+    id: commentId
+  }
 }
 
 //const boundAddComment = text => dispatch(addComment(text));
@@ -46,11 +46,11 @@ function voteDown(id) {
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
-export const VOTE_UP = 'VOTE_UP';
-export const VOTE_DOWN = 'VOTE_DOWN';
+export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
 export { addComment };
 export { editComment };
 export { removeComment };
-export { voteUp };
-export { voteDown };
+export { thumbUpComment };
+export { thumbDownComment };

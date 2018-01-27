@@ -1,4 +1,4 @@
-import {ADD_COMMENT, REMOVE_COMMENT, EDIT_COMMENT, VOTE_UP, VOTE_DOWN} from './actions'
+import {ADD_COMMENT, REMOVE_COMMENT, EDIT_COMMENT, THUMB_UP_COMMENT, THUMB_DOWN_COMMENT} from './actions'
 
 function comments(state = [], action) {
     switch(action.type) {
@@ -20,24 +20,20 @@ function comments(state = [], action) {
                 return comment;
             }
         )
-        case VOTE_UP:
-            return state.comments.map(function(comment) {
-                if(action.id === comment.id) {
-                    comment.votes += 1;
-                    return comment;
+        case THUMB_UP_COMMENT:
+            return state.map(comment => {
+                if(comment.id === action.id) {
+                return {...comment, votes: comment.votes + 1}
                 }
-                return comment;
-            }
-        )
-        case VOTE_DOWN:
-            return state.comments.map(function(comment) {
-                if(action.id === comment.id) {
-                    comment.votes -= 1;
-                    return comment;
+            return comment;
+            });
+        case THUMB_DOWN_COMMENT:
+            return state.map(comment => {
+                if(comment.id === action.id) {
+                return {...comment, votes: comment.votes - 1}
                 }
-                return comment;
-            }
-        )
+            return comment;
+            });
         default:
             return state;
     }
